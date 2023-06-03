@@ -13,7 +13,7 @@ const app = express()
 app.use(
     cors({
       origin: [
-        "https://myway-shop-app.onrender.com",
+        "https://myway-shop-app-h8k8.onrender.com",
         "http://localhost:3000"
       ]
     })
