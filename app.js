@@ -9,11 +9,11 @@ const cartRouter = require('./routes/cartRoutes')
 const bookingRouter = require('./routes/bookingRoutes')
 const reviewRouter = require('./routes/reviewRoutes')
 const chatRouter = require('./routes/chatRoutes')
+const path = require("path");
 const app = express()
 app.use(
     cors({
       origin: [
-        "https://myway-shop-app-h8k8.onrender.com",
         "http://localhost:3000"
       ]
     })
@@ -30,4 +30,11 @@ app.use('/myway/api/carts' , cartRouter)
 app.use('/myway/api/bookings' , bookingRouter)
 app.use('/myway/api/reviews' , reviewRouter)
 app.use('/myway/api/chats' , chatRouter)
+
+
+app.use(express.static(path.join(__dirname, "./client-master/build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client-master/build/index.html"));
+});
 module.exports = app

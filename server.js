@@ -18,7 +18,6 @@ mongoose.connect(DB , {
 const io = new Server(server , {
     cors : {
         origin : [
-            "https://myway-shop-app-h8k8.onrender.com",
             "http://localhost:3000"
         ]
     }
